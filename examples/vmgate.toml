@@ -1,0 +1,138 @@
+# vmgate configuration.
+#
+#   vmgate -config examples/vmgate.toml
+#
+# Only the socket and the logging can also be set on the command line, because
+# those are the things that change between runs of the same guest:
+#
+#   vmgate -config examples/vmgate.toml -listen unix:/tmp/other.sock -v 2
+#
+# Every setting below is optional; the value shown is the default unless stated
+# otherwise. A setting the program does not know is a startup error, so a typo
+# is caught here rather than ignored.
+
+# How the gateway joins QEMU. QEMU dials in by default:
+#
+#   qemu-system-x86_64 ... \
+#     -netdev stream,id=n0,addr.type=unix,addr.path=/tmp/vmgate.sock \
+#     -device virtio-net-pci,netdev=n0
+[link]
+# Where to wait for QEMU: unix:PATH or tcp:HOST:PORT. With neither listen nor
+# connect set, the gateway picks a private socket of its own: the per-user
+# runtime directory ($XDG_RUNTIME_DIR), or /tmp/vmgate-<uid>/ when the
+# system has no such directory. The path it chose is in the startup log.
+listen = "unix:/tmp/vmgate.sock"
+
+# Or dial a QEMU that was started with server=on instead. Cannot be combined
+# with listen.
+# connect = "tcp:127.0.0.1:12340"
+
+# The network the guest sees.
+[network]
+gateway  = "10.0.2.2"   # the guest's default route, which is this process
+dns_ip   = "10.0.2.3"   # the resolver named in the DHCP lease
+guest_ip = "10.0.2.15"  # the first lease, and the default forward target
+netmask  = "255.255.255.0"  # also accepted: 24, or 10.0.2.0/24
+mtu      = 1500
+domain   = "vmgate"     # the search domain handed out by DHCP
+
+# The gateway's MAC; derived from the gateway address when left out.
+# mac = "52:54:00:00:02:02"
+
+# Pin the lease, and the inbound forwards, to one client. Worth setting once a
+# [[forward]] names guest_ip: that is what makes the address predictable.
+# guest_mac = "52:54:00:12:34:56"
+
+[dhcp]
+# Set to false to run the guest with an address configured by hand.
+enabled = true
+
+# Any Go duration: 30m, 2h, 24h.
+lease_time = "24h"
+
+# How many addresses past guest_ip may be leased.
+pool_size = 16
+
+[vpn]
+# Required. The tunnel every guest destination goes through, in wg-quick
+# syntax; examples/vpn.conf explains what the file means here, because it is
+# not quite what wg-quick makes of it.
+#
+# There is no default and no fallback. Without a tunnel a guest has nowhere to
+# go, so the gateway refuses to start rather than quietly reach out through the
+# host's own connection. A relative path is read next to this file, and -vpn on
+# the command line names a different tunnel for the same guest.
+conf = "vpn.conf"
+
+[gateway]
+# Serve anything the guest sends beyond the gateway itself. The connection is
+# made from inside the gateway and goes out through the tunnel above, which is
+# what makes that tunnel the only way out: a destination the VPN's AllowedIPs
+# will not carry is refused, never sent some other way.
+internet = true
+
+# Where the guest may go, on top of what the tunnel can route. An entry is an
+# address or a CIDR.
+# The reserved ranges (loopback, link-local with the cloud metadata endpoint,
+# 0.0.0.0/8, 100.64.0.0/10, multicast and 240.0.0.0/4) are always refused
+# unless allow_egress names them, and deny_egress refuses more. This is a
+# second layer: a peer whose AllowedIPs are 0.0.0.0/0 does not therefore hand
+# the guest the host's own networks. Private networks are allowed unless named
+# here, so a host on a lab network can be closed off with
+# deny_egress = ["192.168.0.0/16", "10.0.0.0/8"].
+allow_egress = []
+deny_egress = []
+
+[dns]
+# Resolvers to forward queries to, optionally with a port. They are asked
+# through the tunnel, like everything else a guest reaches.
+#
+# Left out, the DNS= entries from [vpn]'s file are used, which is normally what
+# a VPN is for. If that file names no IPv4 resolver, the host's own resolvers
+# are used instead and the log says so: they are asked from inside the tunnel
+# like everything else, so a tunnel that cannot reach them answers nothing.
+#
+# They have to be addresses: the gateway cannot look up the name of its own
+# resolver.
+# upstreams = ["1.1.1.1", "8.8.8.8:5353"]
+
+# Names to answer with the gateway address, so the guest can reach the host by
+# name: host.local then means 10.0.2.2.
+map_hosts = ["host.local"]
+
+# Host sockets dialled into the guest. "ssh -p 2222 localhost" then reaches
+# sshd inside it. These, and the services below, are the part of the gateway
+# that keeps using the host's own sockets: the tunnel is for a guest's
+# destinations, not for connections the operator asked for by name.
+[[forward]]
+host_addr  = "127.0.0.1"  # default; use 0.0.0.0 to accept from anywhere
+host_port  = 2222
+guest_addr = "10.0.2.15"  # default: network.guest_ip
+guest_port = 22
+proto      = "tcp"        # default; udp for a server in the guest
+
+[[forward]]
+host_port  = 2053
+guest_port = 53
+proto      = "udp"
+
+# Ports on the gateway that the host serves: a guest connection to 10.0.2.2:80
+# becomes a connection to the host's 127.0.0.1:8080.
+[[service]]
+guest_port = 80
+host_addr  = "127.0.0.1"  # default; names are resolved at startup
+host_port  = 8080
+
+[[service]]
+guest_port = 5353
+host_addr  = "1.1.1.1"
+host_port  = 53
+proto      = "udp"
+
+[log]
+# 0 errors, 1 info, 2 debug. The command line's -v overrides it.
+verbosity = 1
+
+# Log every packet crossing the link, in both directions. The command line's
+# -sniff overrides it.
+sniff = false
