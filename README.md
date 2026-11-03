@@ -326,7 +326,9 @@ internal/wgconf  wg-quick parsing: one peer, IPv4, DNS as addresses, an address
                  them, the MTU bounds, the kernel instructions that are ignored,
                  and no key in an error or in String()
 internal/engine  gateway service over TCP and UDP, internet TCP and UDP relay
-                 through the tunnel, a destination outside AllowedIPs, a
+                 through the tunnel, a TLS handshake and a 24 KiB exchange
+                 across it in both directions and from a guest whose packets are
+                 larger than the tunnel, a destination outside AllowedIPs, a
                  destination on the guest's own segment, the gateway's own
                  tunnel address, DNS through the tunnel, the MTU lowered to the
                  tunnel's, ping answered for the gateway's own addresses and
@@ -385,6 +387,16 @@ a network we do not control, on the other end of a tunnel we do not control.
   refuse it, and answering a ping for an address the gateway does not serve is the
   reachability lie this section is about. There is no configuration that falls
   back to the host's connection: with no `vpn.conf` the gateway refuses to start.
+
+  A refusal that happens *inside* an on-demand relay looks different, and it is
+  the shape an operator hears about: the listener for the destination was put
+  there when the SYN arrived, so the guest's connection opens, its writes are
+  accepted, and the connection is closed once the dial through the tunnel fails —
+  because the tunnel has no route for the address, or because nothing behind it
+  answers before the gateway gives up. A TLS client reports that as an unexpected EOF
+  in the middle of the handshake, not as a network failure, so the log line
+  (`internet: refused`, naming the address and the reason) is what makes the
+  guest's complaint answerable.
 * **The gateway decides where a guest may go, not the guest.** An on-demand
   relay only appears if the destination passes the egress policy
   (`internal/config/egress.go`), which sits *inside* the routing decision:
