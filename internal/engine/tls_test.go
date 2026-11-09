@@ -19,9 +19,9 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/adapters/gonet"
 	"gvisor.dev/gvisor/pkg/tcpip/header"
 
-	"vmgate/internal/config"
-	"vmgate/internal/fixture"
-	"vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/fixture"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
 )
 
 // A TLS handshake is the first thing a guest normally does that puts a full
