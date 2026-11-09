@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"time"
 
-	"vmgate/internal/dns"
-	"vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/dns"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
 )
 
 // Resolver returns the path the gateway's DNS server uses to ask one resolver: a

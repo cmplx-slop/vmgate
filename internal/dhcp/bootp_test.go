@@ -5,7 +5,7 @@ import (
 	"encoding/binary"
 	"testing"
 
-	"vmgate/internal/testutil"
+	"github.com/cmplx-slop/vmgate/internal/testutil"
 )
 
 // rfcCookie is the magic cookie as RFC 1048 names it: the address

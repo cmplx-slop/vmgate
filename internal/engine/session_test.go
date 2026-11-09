@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"vmgate/internal/fixture"
-	"vmgate/internal/qemu"
+	"github.com/cmplx-slop/vmgate/internal/fixture"
+	"github.com/cmplx-slop/vmgate/internal/qemu"
 )
 
 // The link is built for one guest at a time: the endpoint holds a single frame

@@ -10,7 +10,7 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/header"
 	"gvisor.dev/gvisor/pkg/tcpip/stack"
 
-	"vmgate/internal/qemu"
+	"github.com/cmplx-slop/vmgate/internal/qemu"
 )
 
 // Package ethlink connects a gVisor netstack to a stream of ethernet frames,

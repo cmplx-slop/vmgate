@@ -13,7 +13,7 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/stack"
 	"gvisor.dev/gvisor/pkg/tcpip/transport/icmp"
 
-	"vmgate/internal/ethlink"
+	"github.com/cmplx-slop/vmgate/internal/ethlink"
 )
 
 // The gateway writes exactly one kind of ICMP itself, so the byte level

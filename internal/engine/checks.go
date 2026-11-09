@@ -8,7 +8,7 @@ import (
 	"net/netip"
 	"os"
 
-	"vmgate/internal/wgconf"
+	"github.com/cmplx-slop/vmgate/internal/wgconf"
 )
 
 // warnIfShared says what the file's own permissions say about the tunnel's

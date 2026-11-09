@@ -7,11 +7,11 @@ import (
 	"net"
 	"strconv"
 
-	"vmgate/internal/config"
-	"vmgate/internal/dhcp"
-	"vmgate/internal/dns"
-	"vmgate/internal/nsnet"
-	"vmgate/internal/svc"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/dhcp"
+	"github.com/cmplx-slop/vmgate/internal/dns"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/svc"
 )
 
 // startServices installs the [[service]] forwards and the DNS server.

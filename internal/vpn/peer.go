@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"vmgate/internal/wgconf"
+	"github.com/cmplx-slop/vmgate/internal/wgconf"
 )
 
 // shortKey is enough of a public key to tell two peers apart in a log line

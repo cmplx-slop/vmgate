@@ -11,8 +11,8 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip"
 	"gvisor.dev/gvisor/pkg/tcpip/stack"
 
-	"vmgate/internal/config"
-	"vmgate/internal/ethlink"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/ethlink"
 )
 
 // Package svc runs the guest facing side of the translation: listeners inside

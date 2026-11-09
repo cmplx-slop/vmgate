@@ -1,6 +1,6 @@
 package svc
 
-import "vmgate/internal/ethlink"
+import "github.com/cmplx-slop/vmgate/internal/ethlink"
 
 // Inspect is the hook the link layer calls for every inbound frame. It gives
 // the on-demand relays a chance to appear before the stack sees the packet, and

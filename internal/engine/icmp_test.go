@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	"vmgate/internal/config"
-	"vmgate/internal/ethlink"
-	"vmgate/internal/fixture"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/ethlink"
+	"github.com/cmplx-slop/vmgate/internal/fixture"
 )
 
 // The guest's address and hardware address as the fixture's pool and guest stack

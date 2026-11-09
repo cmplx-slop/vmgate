@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"vmgate/internal/ethlink"
+	"github.com/cmplx-slop/vmgate/internal/ethlink"
 )
 
 // A refusal has to be countable and, once, sayable: the stats line gives one

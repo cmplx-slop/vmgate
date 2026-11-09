@@ -6,7 +6,7 @@ import (
 	"strings"
 	"sync"
 
-	"vmgate/internal/svc"
+	"github.com/cmplx-slop/vmgate/internal/svc"
 )
 
 // Package dns implements the gateway's DNS server: it answers synthetic A

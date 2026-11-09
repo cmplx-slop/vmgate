@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	"vmgate/internal/config"
-	"vmgate/internal/dhcp"
-	"vmgate/internal/fixture"
-	"vmgate/internal/testutil"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/dhcp"
+	"github.com/cmplx-slop/vmgate/internal/fixture"
+	"github.com/cmplx-slop/vmgate/internal/testutil"
 )
 
 // TestInboundForward is the [[forward]] case: a socket on the host

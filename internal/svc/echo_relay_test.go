@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"vmgate/internal/config"
-	"vmgate/internal/ethlink"
-	"vmgate/internal/testutil"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/ethlink"
+	"github.com/cmplx-slop/vmgate/internal/testutil"
 )
 
 // A destination the tunnel carries is dialled through the egress seam, and the

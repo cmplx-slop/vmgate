@@ -13,13 +13,13 @@ import (
 
 	"gvisor.dev/gvisor/pkg/tcpip/header"
 
-	"vmgate/internal/config"
-	"vmgate/internal/dhcp"
-	"vmgate/internal/dns"
-	"vmgate/internal/engine"
-	"vmgate/internal/fixture"
-	"vmgate/internal/qemu"
-	"vmgate/internal/testutil"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/dhcp"
+	"github.com/cmplx-slop/vmgate/internal/dns"
+	"github.com/cmplx-slop/vmgate/internal/engine"
+	"github.com/cmplx-slop/vmgate/internal/fixture"
+	"github.com/cmplx-slop/vmgate/internal/qemu"
+	"github.com/cmplx-slop/vmgate/internal/testutil"
 )
 
 // TestOverQEMUSocket drives the gateway exactly the way QEMU does: a unix

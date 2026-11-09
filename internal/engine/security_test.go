@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
-	"vmgate/internal/config"
-	"vmgate/internal/engine"
-	"vmgate/internal/fixture"
-	"vmgate/internal/testutil"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/engine"
+	"github.com/cmplx-slop/vmgate/internal/fixture"
+	"github.com/cmplx-slop/vmgate/internal/testutil"
 )
 
 // metadata is the address every guest that can reach the internet is pointed

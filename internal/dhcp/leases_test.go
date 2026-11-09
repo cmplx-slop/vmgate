@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"vmgate/internal/testutil"
+	"github.com/cmplx-slop/vmgate/internal/testutil"
 )
 
 // The lease table is bounded by the pool, and so is the cost of one request. A

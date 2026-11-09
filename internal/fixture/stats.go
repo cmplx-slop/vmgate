@@ -7,7 +7,7 @@ import (
 
 	"gvisor.dev/gvisor/pkg/tcpip"
 
-	"vmgate/internal/engine"
+	"github.com/cmplx-slop/vmgate/internal/engine"
 )
 
 // DumpStackStats prints the netstack counters that explain a failure. They are

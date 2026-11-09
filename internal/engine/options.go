@@ -3,7 +3,7 @@ package engine
 import (
 	"time"
 
-	"vmgate/internal/svc"
+	"github.com/cmplx-slop/vmgate/internal/svc"
 )
 
 // options collects the optional knobs New understands.

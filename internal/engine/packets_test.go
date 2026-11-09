@@ -8,9 +8,9 @@ import (
 
 	"gvisor.dev/gvisor/pkg/tcpip/header"
 
-	"vmgate/internal/dhcp"
-	"vmgate/internal/dns"
-	"vmgate/internal/qemu"
+	"github.com/cmplx-slop/vmgate/internal/dhcp"
+	"github.com/cmplx-slop/vmgate/internal/dns"
+	"github.com/cmplx-slop/vmgate/internal/qemu"
 )
 
 // ipFrame builds an ethernet frame carrying IPv4/UDP, the shape every DHCP

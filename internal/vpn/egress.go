@@ -4,8 +4,8 @@ import (
 	"context"
 	"net"
 
-	"vmgate/internal/nsnet"
-	"vmgate/internal/svc"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/svc"
 )
 
 // DialTCP connects to "1.2.3.4:5678" through the tunnel.

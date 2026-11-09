@@ -5,8 +5,8 @@ import (
 	"log/slog"
 	"time"
 
-	"vmgate/internal/engine"
-	"vmgate/internal/vpn"
+	"github.com/cmplx-slop/vmgate/internal/engine"
+	"github.com/cmplx-slop/vmgate/internal/vpn"
 )
 
 // statsLoop reports what the gateway is doing, so a running instance is

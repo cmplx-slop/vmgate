@@ -5,7 +5,7 @@ import (
 	"net"
 	"time"
 
-	"vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
 )
 
 // errNoTunnel is what a guest destination is answered with when no tunnel is

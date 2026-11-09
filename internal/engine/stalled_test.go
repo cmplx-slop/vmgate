@@ -5,10 +5,10 @@ import (
 	"testing"
 	"time"
 
-	"vmgate/internal/ethlink"
-	"vmgate/internal/fixture"
-	"vmgate/internal/qemu"
-	"vmgate/internal/testutil"
+	"github.com/cmplx-slop/vmgate/internal/ethlink"
+	"github.com/cmplx-slop/vmgate/internal/fixture"
+	"github.com/cmplx-slop/vmgate/internal/qemu"
+	"github.com/cmplx-slop/vmgate/internal/testutil"
 )
 
 // TestGuestThatStopsTakingFramesIsDisconnected is about a guest that stops taking

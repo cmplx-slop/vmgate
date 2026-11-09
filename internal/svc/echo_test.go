@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"vmgate/internal/config"
-	"vmgate/internal/ethlink"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/ethlink"
 )
 
 // guestPing is one guest's echo request, built the way the link would hand it

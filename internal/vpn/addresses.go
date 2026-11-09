@@ -11,8 +11,8 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/header"
 	"gvisor.dev/gvisor/pkg/tcpip/stack"
 
-	"vmgate/internal/nsnet"
-	"vmgate/internal/wgconf"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/wgconf"
 )
 
 // tunnelAddresses are the IPv4 addresses the configuration gives the tunnel.

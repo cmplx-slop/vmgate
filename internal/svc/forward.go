@@ -14,7 +14,7 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/header"
 	"gvisor.dev/gvisor/pkg/tcpip/stack"
 
-	"vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
 )
 
 // Forwarder is the other direction: sockets opened on the host that dial into

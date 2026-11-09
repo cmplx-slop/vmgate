@@ -7,9 +7,9 @@ import (
 	"net"
 	"time"
 
-	"vmgate/internal/config"
-	"vmgate/internal/engine"
-	"vmgate/internal/qemu"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/engine"
+	"github.com/cmplx-slop/vmgate/internal/qemu"
 )
 
 // banner documents the QEMU invocation that matches this configuration, which

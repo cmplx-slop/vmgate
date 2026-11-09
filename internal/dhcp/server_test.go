@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"vmgate/internal/testutil"
+	"github.com/cmplx-slop/vmgate/internal/testutil"
 )
 
 func testServer() *Server {

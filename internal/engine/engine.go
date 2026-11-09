@@ -10,14 +10,14 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip"
 	"gvisor.dev/gvisor/pkg/tcpip/stack"
 
-	"vmgate/internal/config"
-	"vmgate/internal/dhcp"
-	"vmgate/internal/dns"
-	"vmgate/internal/ethlink"
-	"vmgate/internal/nsnet"
-	"vmgate/internal/svc"
-	"vmgate/internal/vpn"
-	"vmgate/internal/wgconf"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/dhcp"
+	"github.com/cmplx-slop/vmgate/internal/dns"
+	"github.com/cmplx-slop/vmgate/internal/ethlink"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/svc"
+	"github.com/cmplx-slop/vmgate/internal/vpn"
+	"github.com/cmplx-slop/vmgate/internal/wgconf"
 )
 
 // Package engine assembles the gateway: one gVisor netstack with two

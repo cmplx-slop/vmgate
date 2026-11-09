@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"vmgate/internal/qemu"
-	"vmgate/internal/testutil"
+	"github.com/cmplx-slop/vmgate/internal/qemu"
+	"github.com/cmplx-slop/vmgate/internal/testutil"
 )
 
 // TestTransportThatStopsTakingFramesEndsTheLink pins what the gateway does when

@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"vmgate/internal/ethlink"
-	"vmgate/internal/fixture"
+	"github.com/cmplx-slop/vmgate/internal/ethlink"
+	"github.com/cmplx-slop/vmgate/internal/fixture"
 )
 
 // Splitting a ping in two used to be a way past the entire ICMP policy. The

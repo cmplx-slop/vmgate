@@ -3,7 +3,7 @@ package svc
 import (
 	"net"
 
-	"vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/config"
 )
 
 // EnableInternet turns on-demand relaying of arbitrary destination addresses

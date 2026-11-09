@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
 )
 
 // ensureUDP creates the on-demand relay for dstIP:dstPort.

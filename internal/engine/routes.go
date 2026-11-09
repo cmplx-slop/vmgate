@@ -8,7 +8,7 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/header"
 	"gvisor.dev/gvisor/pkg/tcpip/stack"
 
-	"vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
 )
 
 // addAddress installs one of the gateway's own addresses on the NIC.

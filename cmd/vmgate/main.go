@@ -10,8 +10,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"vmgate/internal/config"
-	"vmgate/internal/engine"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/engine"
 )
 
 // Command vmgate is a rootless userspace gateway between a QEMU guest and

@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"vmgate/internal/svc"
+	"github.com/cmplx-slop/vmgate/internal/svc"
 )
 
 // resolver forwards a query verbatim and returns the response.

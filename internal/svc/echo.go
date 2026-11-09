@@ -4,8 +4,8 @@ import (
 	"net"
 	"time"
 
-	"vmgate/internal/ethlink"
-	"vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/ethlink"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
 )
 
 // frameWriter sends a frame the gateway built itself out to the guest. The link

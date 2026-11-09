@@ -1,4 +1,4 @@
-module vmgate
+module github.com/cmplx-slop/vmgate
 
 go 1.27.3
 

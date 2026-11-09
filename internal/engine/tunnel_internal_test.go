@@ -12,8 +12,8 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip"
 	"gvisor.dev/gvisor/pkg/tcpip/header"
 
-	"vmgate/internal/config"
-	"vmgate/internal/wgconf"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/wgconf"
 )
 
 // key is a well formed wg key for a test that cares about addresses rather than

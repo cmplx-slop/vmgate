@@ -9,7 +9,7 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/adapters/gonet"
 	"gvisor.dev/gvisor/pkg/tcpip/header"
 
-	"vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
 )
 
 // ensureTCP creates the on-demand relay listener for dstIP:dstPort.

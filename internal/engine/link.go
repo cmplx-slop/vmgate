@@ -6,8 +6,8 @@ import (
 
 	"gvisor.dev/gvisor/pkg/tcpip"
 
-	"vmgate/internal/nsnet"
-	"vmgate/internal/qemu"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/qemu"
 )
 
 // inspect watches every inbound frame before the stack sees it, so on-demand

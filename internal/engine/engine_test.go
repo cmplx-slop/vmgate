@@ -11,8 +11,8 @@ import (
 	"testing"
 	"time"
 
-	"vmgate/internal/config"
-	"vmgate/internal/fixture"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/fixture"
 )
 
 // hostTCP starts a line-oriented TCP server on the host and returns the port it

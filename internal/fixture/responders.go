@@ -8,8 +8,8 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/adapters/gonet"
 	"gvisor.dev/gvisor/pkg/tcpip/header"
 
-	"vmgate/internal/dns"
-	"vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/dns"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
 )
 
 // ServeTCP starts a line oriented server beyond the tunnel: every line the

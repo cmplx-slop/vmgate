@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"vmgate/internal/fixture"
+	"github.com/cmplx-slop/vmgate/internal/fixture"
 )
 
 // The frame transport will carry a frame of up to 65535 bytes, the stack

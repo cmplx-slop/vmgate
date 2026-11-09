@@ -15,9 +15,9 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/transport/tcp"
 	"gvisor.dev/gvisor/pkg/tcpip/transport/udp"
 
-	"vmgate/internal/testutil"
-	"vmgate/internal/vpn"
-	"vmgate/internal/wgconf"
+	"github.com/cmplx-slop/vmgate/internal/testutil"
+	"github.com/cmplx-slop/vmgate/internal/vpn"
+	"github.com/cmplx-slop/vmgate/internal/wgconf"
 )
 
 // The fixture's tunnel lives far from the guest's 10.0.2.0/24 so that nothing in

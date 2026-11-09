@@ -14,8 +14,8 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/link/channel"
 	"gvisor.dev/gvisor/pkg/tcpip/stack"
 
-	"vmgate/internal/nsnet"
-	"vmgate/internal/wgconf"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/wgconf"
 )
 
 // Package vpn runs a WireGuard interface entirely inside this process: the

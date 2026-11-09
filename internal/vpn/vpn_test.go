@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"vmgate/internal/wgconf"
+	"github.com/cmplx-slop/vmgate/internal/wgconf"
 )
 
 // A tunnel is built from a configuration that has already been checked, and

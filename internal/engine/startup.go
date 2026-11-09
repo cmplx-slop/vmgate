@@ -13,12 +13,12 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/transport/tcp"
 	"gvisor.dev/gvisor/pkg/tcpip/transport/udp"
 
-	"vmgate/internal/config"
-	"vmgate/internal/ethlink"
-	"vmgate/internal/nsnet"
-	"vmgate/internal/svc"
-	"vmgate/internal/vpn"
-	"vmgate/internal/wgconf"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/ethlink"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/svc"
+	"github.com/cmplx-slop/vmgate/internal/vpn"
+	"github.com/cmplx-slop/vmgate/internal/wgconf"
 )
 
 // lowerMTU takes the tunnel's MTU whenever it is the smaller of the two. A

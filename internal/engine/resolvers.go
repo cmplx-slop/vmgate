@@ -3,8 +3,8 @@ package engine
 import (
 	"net"
 
-	"vmgate/internal/config"
-	"vmgate/internal/dns"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/dns"
 )
 
 // resolverList is the tunnel configuration's resolvers in the form the DNS

@@ -34,11 +34,11 @@ import (
 	"gvisor.dev/gvisor/pkg/tcpip/transport/tcp"
 	"gvisor.dev/gvisor/pkg/tcpip/transport/udp"
 
-	"vmgate/internal/config"
-	"vmgate/internal/engine"
-	"vmgate/internal/ethlink"
-	"vmgate/internal/nsnet"
-	"vmgate/internal/qemu"
+	"github.com/cmplx-slop/vmgate/internal/config"
+	"github.com/cmplx-slop/vmgate/internal/engine"
+	"github.com/cmplx-slop/vmgate/internal/ethlink"
+	"github.com/cmplx-slop/vmgate/internal/nsnet"
+	"github.com/cmplx-slop/vmgate/internal/qemu"
 )
 
 // guestMAC is the MAC of the pretend guest NIC.
