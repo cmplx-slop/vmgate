@@ -52,6 +52,33 @@ type Config struct {
 	// DNSUpstreams are resolver addresses the gateway asks through the
 	// tunnel; nil falls back to vpn.conf's DNS=, then the host's.
 	DNSUpstreams []string
+
+	// Forwards and Services are the port passes, both directions: a Forward
+	// opens a listener on the host that reaches a guest port (ssh on
+	// host_port 2222 arriving at the guest's 22), a Service opens a port on
+	// the gateway that the guest can dial, spliced to an endpoint on the
+	// host. Empty fields take the same defaults as the [[forward]] and
+	// [[service]] TOML sections: host_addr 127.0.0.1, guest_addr the guest's
+	// lease, proto tcp. nil means no passes.
+	Forwards []Forward
+	Services []Service
+}
+
+// Forward is one host-to-guest pass; see Config.Forwards.
+type Forward struct {
+	HostAddr  string
+	HostPort  uint16
+	GuestAddr string
+	GuestPort uint16
+	Proto     string // "" (tcp) or "udp"
+}
+
+// Service is one guest-to-host pass; see Config.Services.
+type Service struct {
+	GuestPort uint16
+	HostAddr  string
+	HostPort  uint16
+	Proto     string // "" (tcp) or "udp"
 }
 
 // Serve attaches the gateway to conn and runs one link session: it blocks
@@ -90,6 +117,18 @@ func Serve(ctx context.Context, conn net.Conn, cfg Config, log *slog.Logger) err
 	f.Gateway.AllowEgress = cfg.AllowEgress
 	f.Gateway.DenyEgress = cfg.DenyEgress
 	f.DNS.Upstreams = cfg.DNSUpstreams
+	for _, fw := range cfg.Forwards {
+		f.Forward = append(f.Forward, config.Forward{
+			HostAddr: fw.HostAddr, HostPort: fw.HostPort,
+			GuestAddr: fw.GuestAddr, GuestPort: fw.GuestPort, Proto: fw.Proto,
+		})
+	}
+	for _, sv := range cfg.Services {
+		f.Service = append(f.Service, config.Service{
+			GuestPort: sv.GuestPort, HostAddr: sv.HostAddr,
+			HostPort: sv.HostPort, Proto: sv.Proto,
+		})
+	}
 
 	c, err := config.Resolve(f)
 	if err != nil {
